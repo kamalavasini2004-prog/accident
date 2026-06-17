@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accident Alert System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #d32f2f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            color: #d32f2f;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #d32f2f;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #b71c1c;
+        }
+
+        #message {
+            margin-top: 20px;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🚨 Accident Alert System</h1>
+    <p>Report accidents quickly and efficiently</p>
+</header>
+
+<div class="container">
+    <h2>Report an Accident</h2>
+
+    <input type="text" id="name" placeholder="Your Name">
+
+    <input type="text" id="location" placeholder="Accident Location">
+
+    <textarea id="details" rows="5" placeholder="Describe the accident"></textarea>
+
+    <button onclick="submitReport()">Send Alert</button>
+
+    <p id="message"></p>
+</div>
+
+<script>
+    function submitReport() {
+        const name = document.getElementById("name").value;
+        const location = document.getElementById("location").value;
+        const details = document.getElementById("details").value;
+
+        if(name === "" || location === "" || details === "") {
+            alert("Please fill all fields.");
+            return;
+        }
+
+        document.getElementById("message").innerHTML =
+            "✅ Accident alert submitted successfully!";
+
+        document.getElementById("name").value = "";
+        document.getElementById("location").value = "";
+        document.getElementById("details").value = "";
+    }
+</script>
+
+</body>
+</html>
